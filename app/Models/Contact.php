@@ -11,4 +11,9 @@ class Contact extends Model
 
     // Enable mass assignment
     protected $fillable = ['first_name', 'last_name', 'email', 'address'];
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }
