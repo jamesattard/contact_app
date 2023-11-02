@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Company extends Model
+class Contact extends Model
 {
     use HasFactory;
 
     // Enable mass assignment
-    protected $fillable = ['name', 'address', 'email', 'website'];
+    protected $fillable = ['first_name', 'last_name', 'email', 'address'];
 }
