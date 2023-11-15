@@ -10,7 +10,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $companies = Company::orderBy('name')->pluck('name', 'id');
+        $companies = Company::orderBy('name')->pluck('name', 'id')->prepend('All Companies', '');
         $contacts = Contact::all();
         return view('contacts.index', compact('contacts', 'companies'));
     }

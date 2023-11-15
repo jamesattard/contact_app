@@ -5,9 +5,8 @@
       <div class="col">
         <div class="input-group mb-3">
           <select id="filter_company_id" name="company_id" class="custom-select">
-            <option value="" selected>All Companies</option>
             @foreach ($companies as $id => $name)
-              <option value="{{ $id }}">{{ $name }}</option>
+              <option {{ $id == request('company_id') ? 'selected' : '' }} value="{{ $id }}">{{ $name }}</option>
             @endforeach
           </select>
           </div>
