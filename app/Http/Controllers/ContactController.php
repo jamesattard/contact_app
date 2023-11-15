@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Company;
 use App\Models\Contact;
 
 class ContactController extends Controller
 {
     public function index()
     {
+        $companies = Company::orderBy('name')->pluck('name', 'id');
         $contacts = Contact::all();
-        return view('contacts.index', compact('contacts'));
+        return view('contacts.index', compact('contacts', 'companies'));
     }
 
     public function create()
