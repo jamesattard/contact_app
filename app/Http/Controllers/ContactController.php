@@ -21,7 +21,8 @@ class ContactController extends Controller
     }
 
     function create() {
-        return view('contacts.create');
+        $companies = Company::orderBy('name')->pluck('name', 'id')->prepend('All Companies', '');
+        return view('contacts.create', compact('companies'));
     }
 
     function show($id) {
