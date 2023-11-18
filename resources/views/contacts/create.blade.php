@@ -8,8 +8,10 @@
         <div class="card">
           <div class="card-header card-title">
             <strong>Add New Contact</strong>
-          </div>           
+          </div>
+          <form action="{{ route('contacts.store') }}" method="POST">
             @include('contacts._form')
+          </form>
         </div>
       </div>
     </div>
