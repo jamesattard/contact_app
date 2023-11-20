@@ -10,6 +10,7 @@
             <strong>Add New Contact</strong>
           </div>
           <form action="{{ route('contacts.store') }}" method="POST">
+            @csrf
             @include('contacts._form')
           </form>
         </div>
