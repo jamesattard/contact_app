@@ -20,9 +20,17 @@ class ContactController extends Controller
         return view('contacts.index', compact('contacts', 'companies'));
     }
 
-    function create() {
+    public function show($id) 
+    {
+        $contact = Contact::find($id);
+        return view('contacts.show', compact('contact'));
+    }
+
+    public function create() 
+    {
+        $contact = new Contact();
         $companies = Company::orderBy('name')->pluck('name', 'id')->prepend('All Companies', '');
-        return view('contacts.create', compact('companies'));
+        return view('contacts.create', compact('companies', 'contact'));
     }
 
     public function store(Request $request)
@@ -39,9 +47,10 @@ class ContactController extends Controller
         return redirect()->route('contacts.index')->with('message', 'Contact has been added successfully');
     }
 
-
-    function show($id) {
+    public function edit($id)
+    {
         $contact = Contact::find($id);
-        return view('contacts.show', compact('contact'));
+        $companies = Company::orderBy('name')->pluck('name', 'id')->prepend('All Companies', '');
+        return view('contacts.edit', compact('companies', 'contact'));
     }
 }
