@@ -32,7 +32,7 @@ class ContactController extends Controller
             'last_name' => 'required',
             'email' => 'required|email',
             'address' => 'required',
-            'company_id' => 'required|exist:companies,id'
+            'company_id' => 'required|exists:companies,id'
         ]);
 
         dd($request->all());
