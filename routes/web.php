@@ -36,3 +36,6 @@ Route::get('/contacts/{id}/edit', [ContactController::class, 'edit'])->name('con
 
 // Update the contact details (PUT request)
 Route::put('/contacts/{id}', [ContactController::class, 'update'])->name('contacts.update');
+
+// Delete
+Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy');
