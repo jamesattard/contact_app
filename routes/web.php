@@ -33,3 +33,6 @@ Route::get('/contacts/{id}', [ContactController::class, 'show'])->name('contacts
 
 // Display edit contact form
 Route::get('/contacts/{id}/edit', [ContactController::class, 'edit'])->name('contacts.edit');
+
+// Update the contact details (PUT request)
+Route::put('/contacts/{id}', [ContactController::class, 'update'])->name('contacts.update');

@@ -53,4 +53,20 @@ class ContactController extends Controller
         $companies = Company::orderBy('name')->pluck('name', 'id')->prepend('All Companies', '');
         return view('contacts.edit', compact('companies', 'contact'));
     }
+
+    public function update($id, Request $request)
+    {
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email',
+            'address' => 'required',
+            'company_id' => 'required|exists:companies,id'
+        ]);
+
+        $contact = Contact::find($id);
+        $contact->update($request->all());
+
+        return redirect()->route('contact.index')->with('message', 'Contact has been updated successfully');
+    }
 }

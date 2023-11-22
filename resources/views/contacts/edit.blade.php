@@ -9,7 +9,8 @@
           <div class="card-header card-title">
             <strong>Edit Contact</strong>
           </div>
-          <form action="{{ route('contacts.store') }}" method="POST">
+          <form action="{{ route('contacts.update', $contact->id) }}" method="POST">
+            @method('PUT')
             @csrf
             @include('contacts._form')
           </form>
