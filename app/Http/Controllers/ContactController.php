@@ -25,8 +25,14 @@ class ContactController extends Controller
         return view('contacts.create', compact('companies'));
     }
 
+    public function store(Request $request)
+    {
+        dd($request->all());
+    }
+
+
     function show($id) {
         $contact = Contact::find($id);
-        return view('contacts.show', compact('contact')); // ['contact'] => $contact
+        return view('contacts.show', compact('contact'));
     }
 }
