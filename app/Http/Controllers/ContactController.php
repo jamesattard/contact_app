@@ -35,7 +35,8 @@ class ContactController extends Controller
             'company_id' => 'required|exists:companies,id'
         ]);
 
-        dd($request->all());
+        Contact::create($request->all());
+        return redirect()->route('contacts.index')->with('message', 'Contact has been added successfully');
     }
 
 
