@@ -10,7 +10,7 @@ class Contact extends Model
     use HasFactory;
 
     // Enable mass assignment
-    protected $fillable = ['first_name', 'last_name', 'email', 'address'];
+    protected $fillable = ['first_name', 'last_name', 'email', 'address', 'company_id'];
 
     public function company()
     {
